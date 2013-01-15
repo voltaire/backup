@@ -37,5 +37,5 @@ sleep 1
 screen -p 0 -S voltairemc -X eval "stuff \"say Backup has been completed.\"\015"
 
 # (Optionally) Remove all old (older than 7 days) backups to cut down on disk utilization. 
-find $backupDest* -mtime +7 -exec rm {} -rf \;
+find $backupDest* -mtime +2 -exec rm {} -rf \;
 
