@@ -25,8 +25,9 @@ mkdir $backupDest/$serverNick-most-recent
 cp -R $minecraftDir/* $backupDest/$serverNick-most-recent
 
 # Create an archived copy in .tar.gz format.
-rm -rf $backupDest/$serverNick-$backupStamp.tar.gz
+# rm -rf $backupDest/$serverNick-$backupStamp.tar.gz
 tar -czf $backupDest/$serverNick-$backupStamp.tar.gz $minecraftDir/*
+rsync -a $backupDest/$serverNick-$backupStamp.tar.gz backups:/home/backups/mc-voltaire-sh/backups/
 
 # Don't forget to take the server out of readonly mode.
 screen -p 0 -S voltairemc -X eval "stuff \"save-on\"\015"
@@ -34,8 +35,6 @@ screen -p 0 -S voltairemc -X eval "stuff \"save-on\"\015"
 # Wait a second for the gnu-screen to allow another stuffing and optionally alert users that the backup has been completed.
 sleep 1
 screen -p 0 -S voltairemc -X eval "stuff \"say Backup has been completed.\"\015"
-
-rsync -a $backupDest/*.tar.gz backups:/home/backups/mc-voltaire-sh/backups/
 
 # (Optionally) Remove all old (older than 7 days) backups to cut down on disk utilization. 
 find $backupDest* -mtime +7 -exec rm {} -rf \;
