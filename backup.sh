@@ -3,12 +3,17 @@
 # Minecraft Backup Script                  
 # Author: Mark Ide <cranstonide@gmail.com> 
 # Github: https://github.com/cranstonide/linux-minecraft-scripts
+hostname=`hostname`
 
 # Move into the directory with all Linux-Minecraft-Scripts
 cd "$( dirname $0 )"
 
 # Read configuration file
-source mc-config.cfg
+if [ "$hostname" == "ichiro" ]
+    then source mc-config.cfg
+elif [ "$hostname" == "voltaire" ]
+    then source ftb-config.cfg
+fi
 
 # We need to first put the server in readonly mode to reduce the chance of backing up half of a chunk. 
 screen -p 0 -S voltairemc  -X eval "stuff \"save-off\"\015"
