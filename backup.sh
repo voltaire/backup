@@ -25,14 +25,14 @@ sleep 5
 # Create a copy for the most recent server image directory (its a convenient way to recover 
 # a single players' data or chunks without unzipping the whole archive). If you don't need a 
 # directory with the most recent image, you may comment this section out.
-rm -rf $backupDest/$serverNick-most-recent
-mkdir $backupDest/$serverNick-most-recent
-cp -R $minecraftDir/* $backupDest/$serverNick-most-recent
+rm -rf $localBUDest/$serverNick-most-recent
+mkdir $localBUDest/$serverNick-most-recent
+cp -R $minecraftDir/* $localBUDest/$serverNick-most-recent
 
 # Create an archived copy in .tar.gz format.
-# rm -rf $backupDest/$serverNick-$backupStamp.tar.gz
-tar -czf $backupDest/$serverNick-$backupStamp.tar.gz $minecraftDir/*
-rsync -a $backupDest/$serverNick-$backupStamp.tar.gz backups:/home/backups/mc-voltaire-sh/backups/
+# rm -rf $localBUDest/$serverNick-$backupStamp.tar.gz
+tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz $minecraftDir/*
+rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
 
 # Don't forget to take the server out of readonly mode.
 screen -p 0 -S voltairemc -X eval "stuff \"save-on\"\015"
@@ -42,5 +42,5 @@ sleep 1
 screen -p 0 -S voltairemc -X eval "stuff \"say Backup has been completed.\"\015"
 
 # (Optionally) Remove all old (older than 7 days) backups to cut down on disk utilization. 
-find $backupDest* -mtime +2 -exec rm {} -rf \;
+find $localBUDest* -mtime +2 -exec rm {} -rf \;
 
