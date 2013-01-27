@@ -4,6 +4,7 @@
 # Author: Mark Ide <cranstonide@gmail.com> 
 # Github: https://github.com/cranstonide/linux-minecraft-scripts
 hostname=`hostname`
+tarDir=`basename $minecraftDir`
 
 # Move into the directory with all Linux-Minecraft-Scripts
 cd "$( dirname $0 )"
@@ -31,7 +32,7 @@ cp -R $minecraftDir/* $localBUDest/$serverNick-most-recent
 
 # Create an archived copy in .tar.gz format.
 # rm -rf $localBUDest/$serverNick-$backupStamp.tar.gz
-tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz $minecraftDir/*
+tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz -C /home/minecraft $tarDir/*
 rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
 
 # Don't forget to take the server out of readonly mode.
