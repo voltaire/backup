@@ -9,7 +9,7 @@ hostname=`hostname`
 cd "$( dirname $0 )"
 
 # Read configuration file
-if [ "$hostname" == "ichiro" ]
+if [ "$hostname" == "locke" ]
     then source mc-config.cfg
 elif [ "$hostname" == "voltaire" ]
     then source ftb-config.cfg
