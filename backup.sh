@@ -8,9 +8,9 @@
 cd "$( dirname $0 )"
 
 # Read configuration file
-if [ "$(whoami)" == "vanilla" ]
+if [ "$(whoami)" == "minecraft" ]
     then source mc-config.cfg
-    elif [ "$(whoami)" == "minecraft" ]
+    elif [ "$(whoami)" == "ftb" ]
     then source ftb-config.cfg
 fi
 
