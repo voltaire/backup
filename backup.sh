@@ -14,7 +14,7 @@ if [ "$(whoami)" == "minecraft" ]
     then source ftb-config.cfg
 fi
 
-tarDir=`basename $minecraftDir`
+tarDir=$(basename $minecraftDir)
 
 # We need to first put the server in readonly mode to reduce the chance of backing up half of a chunk. 
 screen -p 0 -S $(whoami) -X eval "stuff \"save-off\"\015"
