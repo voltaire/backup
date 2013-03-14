@@ -32,7 +32,7 @@ cp -R $minecraftDir/* $localBUDest/$serverNick-most-recent
 
 # Create an archived copy in .tar.gz format.
 # rm -rf $localBUDest/$serverNick-$backupStamp.tar.gz
-tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz -C $HOME/$tarDir/*
+tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz -C $HOME/$tarDir/ .
 cp $localBUDest/$serverNick-$backupStamp.tar.gz $tahoedir/
 #rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
 
