@@ -33,7 +33,8 @@ cp -R $minecraftDir/* $localBUDest/$serverNick-most-recent
 # Create an archived copy in .tar.gz format.
 # rm -rf $localBUDest/$serverNick-$backupStamp.tar.gz
 tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz -C $HOME/$tarDir/*
-rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
+cp $localBUDest/$serverNick-$backupStamp.tar.gz $tahoedir/
+#rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
 
 # Don't forget to take the server out of readonly mode.
 screen -p 0 -S $(whoami) -X eval "stuff \"save-on\"\015"
