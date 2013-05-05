@@ -33,7 +33,8 @@ cp -R $minecraftDir/* $localBUDest/$serverNick-most-recent
 # Create an archived copy in .tar.gz format.
 # rm -rf $localBUDest/$serverNick-$backupStamp.tar.gz
 nice tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz -C $HOME/$tarDir/ .
-cp $localBUDest/$serverNick-$backupStamp.tar.gz $tahoedir/
+#cp $localBUDest/$serverNick-$backupStamp.tar.gz $tahoedir/
+boto-rsync -g public-read --endpoint objects.dreamhost.com $localBUDest/$serverNick-$backupStamp.tar.gz s3://voltairemc/$dodir
 #rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
 
 # Don't forget to take the server out of readonly mode.
