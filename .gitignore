@@ -1,5 +1,6 @@
-env
+# Created by http://gitignore.io
 
+### Python ###
 *.py[cod]
 
 # C extensions
@@ -37,16 +38,8 @@ nosetests.xml
 .project
 .pydevproject
 
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
+# Rope
+.ropeproject
 
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
+env
 
