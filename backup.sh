@@ -34,7 +34,7 @@ cp -R $minecraftDir/* $localBUDest/$serverNick-most-recent
 # rm -rf $localBUDest/$serverNick-$backupStamp.tar.gz
 nice tar -czf $localBUDest/$serverNick-$backupStamp.tar.gz -C $HOME/$tarDir/ .
 #cp $localBUDest/$serverNick-$backupStamp.tar.gz $tahoedir/
-/usr/local/bin/boto-rsync -g public-read $localBUDest/$serverNick-$backupStamp.tar.gz gs://voltairemc/$dodir
+#/usr/local/bin/boto-rsync -g public-read $localBUDest/$serverNick-$backupStamp.tar.gz gs://voltairemc/$dodir
 #rsync -a $localBUDest/$serverNick-$backupStamp.tar.gz backups:$remoteBUDest
 
 # Don't forget to take the server out of readonly mode.
