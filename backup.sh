@@ -44,3 +44,4 @@ screen -p 0 -S $(whoami) -X eval "stuff \"say Backup has been completed.\"\015"
 
 # (Optionally) Remove all old (older than 7 days) backups to cut down on disk utilization. 
 find $localBUDest* -mtime +2 -exec rm {} -rf \;
+
