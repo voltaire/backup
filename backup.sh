@@ -7,12 +7,7 @@
 # Move into the directory with all Linux-Minecraft-Scripts
 cd "$( dirname $0 )"
 
-# Read configuration file
-if [ "$(whoami)" == "minecraft" ]
-    then source mc-config.cfg
-    elif [ "$(whoami)" == "ftb" ]
-    then source ftb-config.cfg
-fi
+source mc-config.cfg
 
 tarDir=$(basename $minecraftDir)
 
